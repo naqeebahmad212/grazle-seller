@@ -10,7 +10,7 @@ import Image from "next/image";
 import { toast } from "react-toastify";
 import { FiLoader } from "react-icons/fi";
 
-const page = () => {
+const ApplyOffer = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [allOffers, setAllOffers] = useState([]);
   const [selectedIds, setSelectedIds] = useState([]);
@@ -195,4 +195,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default ApplyOffer;
