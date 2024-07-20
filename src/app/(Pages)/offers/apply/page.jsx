@@ -118,7 +118,9 @@ const ApplyOffer = () => {
                   >
                     <option value="">-- select offer --</option>
                     {allOffers?.map((offer) => (
-                      <option value={offer.id}>{offer.name}</option>
+                      <option key={offer.id} value={offer.id}>
+                        {offer.name}
+                      </option>
                     ))}
                   </select>
 
@@ -150,39 +152,37 @@ const ApplyOffer = () => {
 
                   <tbody>
                     {allProducts?.map((product) => (
-                      <>
-                        <tr className="h-[50px] text-[14px]">
-                          <td className="ml-2">{product.id}</td>
-                          <td className="flex items-center gap-1.5 h-[50px] capitalize">
-                            {product?.featured_image && (
-                              <Image
-                                alt=""
-                                width={26}
-                                height={26}
-                                src={"/" + product?.featured_image}
-                                className="h-[26px] w-[26px]"
-                              />
-                            )}
-                          </td>
-                          <td>{product?.title}</td>
-
-                          <td>₹ {product?.price}</td>
-                          <td className="w-[130px]">
-                            {product?.active ? "Active" : "Inactive"}
-                          </td>
-                          <td>
-                            <input
-                              onChange={(event) =>
-                                handleCheckboxChange(event, product.id)
-                              }
-                              className="cursor-pointer ml-2"
-                              type="checkbox"
-                              name=""
-                              id=""
+                      <tr className="h-[50px] text-[14px]" key={product.id}>
+                        <td className="ml-2">{product.id}</td>
+                        <td className="flex items-center gap-1.5 h-[50px] capitalize">
+                          {product?.featured_image && (
+                            <Image
+                              alt=""
+                              width={26}
+                              height={26}
+                              src={"/" + product?.featured_image}
+                              className="h-[26px] w-[26px]"
                             />
-                          </td>
-                        </tr>
-                      </>
+                          )}
+                        </td>
+                        <td>{product?.title}</td>
+
+                        <td>₹ {product?.price}</td>
+                        <td className="w-[130px]">
+                          {product?.active ? "Active" : "Inactive"}
+                        </td>
+                        <td>
+                          <input
+                            onChange={(event) =>
+                              handleCheckboxChange(event, product.id)
+                            }
+                            className="cursor-pointer ml-2"
+                            type="checkbox"
+                            name=""
+                            id=""
+                          />
+                        </td>
+                      </tr>
                     ))}
                   </tbody>
                 </table>
